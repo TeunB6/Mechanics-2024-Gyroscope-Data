@@ -1,7 +1,7 @@
 require(tidyverse)
 library(tools) # For file_path_sans_ext
 
-file_names <- list.files(pattern = "*.csv")
+file_names <- list.files(pattern = "raw/*.csv")
 df_list <- map(file_names, ~ read_csv(.x))
 max_length <- max(sapply(df_list, nrow))
 first_col <- seq(0, (max_length - 1) * 0.1, by = 0.1)
